@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+
+.container:focus {
+  outline: 2px solid #09f;
+}
+
+.light {
+  background: linear-gradient(to right, white 0%, transparent 100%);
+}
+
+.dark {
+  background: linear-gradient(to bottom, transparent 0, #000 100%);
+}

@@ -1,0 +1,19 @@
+.container {
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 0.6px inset;
+  border-radius: 6px;
+  width: 160px;
+  height: 12px;
+}
+
+.container:focus {
+  outline: 1px solid #09f;
+}
+
+.thumb {
+  top: 50%;
+}
+
+.sliderOverlay {
+  border-radius: 6px;
+}
