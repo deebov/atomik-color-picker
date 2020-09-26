@@ -19,7 +19,7 @@
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
     "build": "lerna run build",
-    "publish": "lerna publish",
+    "publish": "lerna publish from-package",
     "core": "yarn workspace @atomik-color/core",
     "component": "yarn workspace @atomik-color/component"
   },
