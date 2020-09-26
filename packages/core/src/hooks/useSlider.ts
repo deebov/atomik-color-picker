@@ -34,7 +34,7 @@ type Direction =
       onChange?: ({ x, y }: { x: number; y: number }) => void;
     };
 
-type UseSlideProps = Direction & {
+type UseSliderProps = Direction & {
   ref: RefObject<HTMLElement>;
   maxValue?: number;
   minValue?: number;
@@ -46,13 +46,13 @@ type UseSlideProps = Direction & {
   bigStep?: number;
 };
 
-type UseSlide = (
-  props: UseSlideProps
+type UseSlider = (
+  props: UseSliderProps
 ) => {
   sliderProps: HTMLAttributes<HTMLElement>;
 };
 
-const useSlide: UseSlide = ({
+const useSlider: UseSlider = ({
   ref,
   onStep,
   ariaLabel,
@@ -165,4 +165,4 @@ const useSlide: UseSlide = ({
   };
 };
 
-export default useSlide;
+export default useSlider;

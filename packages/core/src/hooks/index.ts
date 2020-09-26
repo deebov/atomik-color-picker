@@ -7,4 +7,4 @@ export {
 } from "./useColorPickerState";
 export { default as useColorRectangle } from "./useColorRectangle";
 export { default as useHue } from "./useHue";
-export { default as useSlide } from "./useSlide";
+export { default as useSlider } from "./useSlider";

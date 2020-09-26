@@ -1,7 +1,7 @@
 import { HTMLAttributes, RefObject } from "react";
 import { HUE_MAX } from "../color/constants";
 import { ColorPickerState } from "./useColorPickerState";
-import useSlide from "./useSlide";
+import useSlider from "./useSlider";
 
 type UseHueProps = {
   state: ColorPickerState;
@@ -15,7 +15,7 @@ type UseHue = (
 };
 
 const useHue: UseHue = ({ state, ref }) => {
-  const { sliderProps } = useSlide({
+  const { sliderProps } = useSlider({
     ref,
     direction: "horizontal",
     onChange: (x) => state.setH(x),

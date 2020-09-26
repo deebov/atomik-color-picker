@@ -1,7 +1,7 @@
 import { HTMLAttributes, RefObject } from "react";
 import { ALPHA_MAX } from "../color/constants";
 import { ColorPickerState } from "./useColorPickerState";
-import useSlide from "./useSlide";
+import useSlider from "./useSlider";
 
 type UseAlphaProps = {
   state: ColorPickerState;
@@ -15,7 +15,7 @@ type UseAlpha = (
 };
 
 const useAlpha: UseAlpha = ({ state, ref }) => {
-  const { sliderProps } = useSlide({
+  const { sliderProps } = useSlider({
     ref,
     direction: "horizontal",
     onChange: (x) => state.setA(x),

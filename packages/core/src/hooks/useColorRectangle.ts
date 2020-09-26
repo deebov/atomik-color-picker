@@ -2,7 +2,7 @@ import React, { HTMLAttributes, RefObject, useRef } from "react";
 import { ColorPickerState } from "./useColorPickerState";
 import Key from "../utils/keys";
 import { SV_MAX } from "../color/constants";
-import useSlide from "./useSlide";
+import useSlider from "./useSlider";
 
 type UseColorRectangleProps = {
   state: ColorPickerState;
@@ -42,7 +42,7 @@ const useColorRectangle: UseColorRectangle = ({
     .replace("{0}", String(color.s))
     .replace("{1}", String(color.v));
 
-  const { sliderProps } = useSlide({
+  const { sliderProps } = useSlider({
     ref,
     maxValue: SV_MAX,
     direction: "both",
