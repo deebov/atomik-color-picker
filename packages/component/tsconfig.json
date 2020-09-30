@@ -4,7 +4,6 @@
     "outDir": "./dist",
     "jsx": "react"
   },
-  "references": [{ "path": "../core" }],
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }

@@ -57,7 +57,7 @@ export function createRollupConfig(options, callback) {
         extract: false,
         modules: true,
       }),
-      commonjs({ include: /node_modules/ }),
+      commonjs(),
       options.env !== undefined &&
         replace({
           "process.env.NODE_ENV": JSON.stringify(options.env),
