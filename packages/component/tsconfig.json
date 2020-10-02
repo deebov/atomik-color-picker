@@ -2,11 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "jsx": "react",
-    "baseUrl": "./src",
-    "paths": {
-      "@atomik-color/core/*": ["../core/src/*"]
-    }
+    "jsx": "react"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

@@ -19,7 +19,7 @@
     "start": "yarn clean && concurrently \"yarn core dev\" \"start-storybook -p 6006\"",
     "clean": "yarn workspaces run clean",
     "prebuild": "yarn clean",
-    "build": "lerna run build",
+    "build": "yarn workspaces run build",
     "publish": "lerna publish --yes",
     "core": "yarn workspace @atomik-color/core",
     "component": "yarn workspace @atomik-color/component"

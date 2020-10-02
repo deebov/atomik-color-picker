@@ -2,7 +2,7 @@
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 0.6px inset;
   border-radius: 2px;
-  width: 160px;
+  min-width: 160px;
   height: 12px;
 }
 
@@ -15,5 +15,5 @@
 }
 
 .sliderOverlay {
-  border-radius: 6px;
+  border-radius: 2px;
 }

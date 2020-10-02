@@ -3,4 +3,4 @@ import ColorPicker from "../src";
 
 export default { title: "ColorPicker" };
 
-export const ColorPickerDefault = () => <ColorPicker />;
+export const ColorPickerDefault = () => <ColorPicker showPreview={true} />;
