@@ -9,7 +9,7 @@ import {
   rgba2Str,
 } from "../color/converters";
 import { ALPHA_MAX, HUE_MAX, SV_MAX } from "../color/constants";
-import { RGBA, TColor } from "../types";
+import { RGB, RGBA, TColor } from "../types";
 import {
   isValidAlpha,
   isValidColorValue,
@@ -44,8 +44,6 @@ export type ColorState = {
   rotateV: (amount: number) => void;
   rotateA: (amount: number) => void;
 };
-
-console.log(cssColor("hsla(50,44,33,.8)"));
 
 const initalColor = {
   h: 0,
@@ -169,10 +167,13 @@ const useColorState: UseColorState = (props) => {
     });
   };
 
-  const setHex = (hex: string) => {
-    if (!isValidHex(hex)) return;
+  const setHex = (
+    hex: string,
+    fallback: RGB = { r: color.r, g: color.g, b: color.b }
+  ) => {
+    // if (!isValidHex(hex)) return;
     setValue(({ a }) => {
-      const { r, g, b } = hex2Rgb(hex, { r: 0, g: 0, b: 0 });
+      const { r, g, b } = hex2Rgb(hex, fallback);
       const { h, s, v } = rgb2Hsv({ r, g, b });
       const str = rgba2Str({ r, g, b, a });
       return { r, g, b, h, s, v, hex, a, str };
