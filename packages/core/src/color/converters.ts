@@ -1,6 +1,7 @@
-import { HSL, HSV, RGB } from "../types";
+import { HSL, HSV, RGB, RGBA } from "../types";
 import { clamp } from "../utils/clamp";
 import { ALPHA_MAX } from "./constants";
+import { getColorFromString } from "./getColorFromString";
 import { isValidHex, normalizeHsv, normalizeRgb } from "./utils";
 
 export const hsv2Rgb = (hsv: HSV) => {
@@ -116,20 +117,14 @@ export const rgb2Hex = ({ r, g, b }: RGB, withHash: boolean = true) => {
   );
 };
 
-export const rgba2Str = ({
-  r,
-  g,
-  b,
-  a,
-}: {
-  r: number;
-  g: number;
-  b: number;
-  a: number;
-}) => {
+export const rgba2RgbStr = ({ r, g, b, a }: RGBA) => {
   return typeof a === "number" && isNaN(a) === false
     ? `rgba(${r}, ${g}, ${b}, ${clamp(a, ALPHA_MAX, 0) / 100})`
     : `rgb(${r}, ${g}, ${b})`;
+};
+
+export const rgba2Str = (value: RGBA): string => {
+  return value.a < ALPHA_MAX ? rgba2RgbStr(value) : rgb2Hex(value);
 };
 
 export const hsl2Rgb = ({ h, s, l }: HSL) => {
@@ -187,3 +182,5 @@ export const hex2Hsv = (hex: string) => {
   const rgb = hex2Rgb(hex) || { r: 0, g: 0, b: 0 };
   return rgb2Hsv(rgb);
 };
+
+export const str2Color = getColorFromString;

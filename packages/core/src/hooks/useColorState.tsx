@@ -16,6 +16,7 @@ import {
   isValidHex,
   isValidRGBValue,
 } from "../color/utils";
+import { cssColor } from "../color/cssColor";
 
 export type UseColorProps = {
   defaultValue?: TColor;
@@ -44,6 +45,8 @@ export type ColorState = {
   rotateA: (amount: number) => void;
 };
 
+console.log(cssColor("hsla(50,44,33,.8)"));
+
 const initalColor = {
   h: 0,
   s: 50,
@@ -56,10 +59,6 @@ const initalColor = {
   str: "#804040",
 };
 
-const toString = (value: RGBA) => {
-  return value.a < ALPHA_MAX ? rgba2Str(value) : rgb2Hex(value);
-};
-
 const setRGBValue = (
   setValue: React.Dispatch<React.SetStateAction<TColor>>,
   channel: "r" | "g" | "b",
@@ -70,7 +69,7 @@ const setRGBValue = (
     const { r, g, b, a }: TColor = { ...prev, [channel]: value };
     const { h, s, v } = rgb2Hsv({ r, g, b });
     const hex = rgb2Hex({ r, g, b }, false);
-    const str = toString({ r, g, b, a });
+    const str = rgba2Str({ r, g, b, a });
     return { r, g, b, a, h, s, v, hex, str };
   });
 };
@@ -88,7 +87,7 @@ const setHSVValue = (
     const { h, s, v, a }: TColor = { ...prev, [channel]: value };
     const { r, g, b } = hsv2Rgb({ h, s, v });
     const hex = rgb2Hex({ r, g, b }, false);
-    const str = toString({ r, g, b, a });
+    const str = rgba2Str({ r, g, b, a });
     return { h, s, v, r, g, b, a, hex, str };
   });
 };
@@ -106,7 +105,7 @@ const rotateHSVValue = (
     };
     const { r, g, b } = hsv2Rgb({ h, s, v });
     const hex = rgb2Hex({ r, g, b }, false);
-    const str = toString({ r, g, b, a });
+    const str = rgba2Str({ r, g, b, a });
     return { h, s, v, r, g, b, a, hex, str };
   });
 };
@@ -150,7 +149,7 @@ const useColorState: UseColorState = (props) => {
       const { h, a } = prev;
       const { r, g, b } = hsv2Rgb({ h, s, v });
       const hex = rgb2Hex({ r, g, b }, false);
-      const str = toString({ r, g, b, a });
+      const str = rgba2Str({ r, g, b, a });
       return { h, s, v, r, g, b, a, hex, str };
     });
   };
@@ -165,7 +164,7 @@ const useColorState: UseColorState = (props) => {
     if (!isValidAlpha(a)) return;
     setValue((prev) => {
       const updated = { ...prev, a };
-      updated.str = toString(updated);
+      updated.str = rgba2Str(updated);
       return updated;
     });
   };
@@ -175,7 +174,7 @@ const useColorState: UseColorState = (props) => {
     setValue(({ a }) => {
       const { r, g, b } = hex2Rgb(hex, { r: 0, g: 0, b: 0 });
       const { h, s, v } = rgb2Hsv({ r, g, b });
-      const str = toString({ r, g, b, a });
+      const str = rgba2Str({ r, g, b, a });
       return { r, g, b, h, s, v, hex, a, str };
     });
   };
