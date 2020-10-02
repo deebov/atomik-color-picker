@@ -1,12 +1,12 @@
 import React, { HTMLAttributes, useRef } from "react";
-import { ColorPickerState, useColorRectangle } from "@atomik-color/core";
+import { ColorState, useColorRectangle } from "@atomik-color/core";
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
 
 const SV_MAX = 100;
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  state: ColorPickerState;
+  state: ColorState;
 }
 
 const ColorRectangle: React.FC<Props> = ({ state, ...props }) => {
