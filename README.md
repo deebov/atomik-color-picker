@@ -34,6 +34,10 @@ const [color, setColor] = useState()
 <ColorPicker value={color} onChange={setColor} />
 ```
 
+## Supported colors
+
+All color related things are handled in `useColorState`. And the color value is converted to multiple formats automatically, so you don't have to deal with color conversion 😄. Available color formats are `rgb`, `hsv`, `hex`, `alpha` and string value (`hsl` coming soon). You can access them via `state.color`.
+
 ## API
 
 ### ColorPicker
