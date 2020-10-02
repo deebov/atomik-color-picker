@@ -6,6 +6,7 @@ const options = [
   {
     name,
     format: "cjs",
+    formatName: "",
     env: "production",
     input: pkg.source,
   },

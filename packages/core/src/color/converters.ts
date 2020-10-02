@@ -1,7 +1,6 @@
 import { HSL, HSV, RGB, RGBA } from "../types";
 import { clamp } from "../utils/clamp";
 import { ALPHA_MAX } from "./constants";
-import { getColorFromString } from "./getColorFromString";
 import { isValidHex, normalizeHsv, normalizeRgb } from "./utils";
 
 export const hsv2Rgb = (hsv: HSV) => {
@@ -182,5 +181,3 @@ export const hex2Hsv = (hex: string) => {
   const rgb = hex2Rgb(hex) || { r: 0, g: 0, b: 0 };
   return rgb2Hsv(rgb);
 };
-
-export const str2Color = getColorFromString;

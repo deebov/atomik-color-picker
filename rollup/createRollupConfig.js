@@ -26,9 +26,11 @@ export function createRollupConfig(options, callback) {
 
   const outputName = [
     path.join(tsCompilerOptions.outDir, name),
-    options.formatName || options.format,
+    typeof options.formatName === "string"
+      ? options.formatName
+      : options.format,
     // options.env,
-    shouldMinify ? "min" : "",
+    // shouldMinify ? "min" : "",
     "js",
   ]
     .filter(Boolean)
