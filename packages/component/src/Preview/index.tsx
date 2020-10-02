@@ -1,4 +1,5 @@
 import React, { HTMLAttributes } from "react";
+import commonStyles from "../common.module.css";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   color: string;
@@ -8,6 +9,7 @@ const Preview: React.FC<Props> = ({ color, ...props }) => {
   return (
     <div
       {...props}
+      className={commonStyles.transBackground}
       style={{
         ...props.style,
         display: "inline-block",

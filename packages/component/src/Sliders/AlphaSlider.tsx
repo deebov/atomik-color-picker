@@ -5,11 +5,6 @@ import commonStyles from "../common.module.css";
 
 const ALPHA_MAX = 100;
 
-const alphaStyle = {
-  backgroundImage:
-    "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJUlEQVQYV2N89erVfwY0ICYmxoguxjgUFKI7GsTH5m4M3w1ChQC1/Ca8i2n1WgAAAABJRU5ErkJggg==)",
-};
-
 interface Props extends HTMLAttributes<HTMLDivElement> {
   state: ColorState;
 }
@@ -20,10 +15,13 @@ const AlphaSlider: React.FC<Props> = memo(
     const { sliderProps } = useAlpha({ ref, state });
     return (
       <div
-        className={[styles.container, props.className || ""].join(" ")}
         {...props}
         {...sliderProps}
-        style={{ ...alphaStyle, ...props.style }}
+        className={[
+          styles.container,
+          commonStyles.transBackground,
+          props.className || "",
+        ].join(" ")}
         ref={ref}
       >
         <div

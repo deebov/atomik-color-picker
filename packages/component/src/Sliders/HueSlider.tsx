@@ -34,9 +34,9 @@ const HueSlider: React.FC<Props> = memo(
     const { sliderProps } = useHue({ ref, state });
     return (
       <div
-        className={[styles.container, props.className || ""].join(" ")}
         {...props}
         {...sliderProps}
+        className={[styles.container, props.className || ""].join(" ")}
         style={{ ...hueStyle, ...props.style }}
         ref={ref}
       >

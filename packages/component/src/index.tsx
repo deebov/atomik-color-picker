@@ -4,6 +4,7 @@ import HueSlider from "./Sliders/HueSlider";
 import AlphaSlider from "./Sliders/AlphaSlider";
 import { useColorState, UseColorProps } from "@atomik-color/core";
 import Preview from "./Preview";
+import styles from "./index.module.css";
 
 interface Props extends UseColorProps {
   showPreview?: boolean;
@@ -29,7 +30,12 @@ const ColorPicker = forwardRef<HTMLDivElement, Props>(
     // };
 
     return (
-      <div role="group" ref={ref} style={{ maxWidth: "220px" }}>
+      <div
+        className={styles.container}
+        role="group"
+        ref={ref}
+        style={{ maxWidth: "220px" }}
+      >
         <ColorRectangle style={{ marginBottom: "10px" }} state={state} />
         <div
           style={{
