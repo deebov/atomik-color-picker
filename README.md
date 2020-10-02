@@ -2,6 +2,8 @@
 
 Hooks (and component) for building accessible color picker for React. 0 dependecies, tiny ~3K, built-in powerful color conversions, touch and pen support, keyboard and screen-reader accessible, built using React hooks, fast!
 
+![typescript](https://badgen.net/badge/icon/typescript?icon=typescript&label) ![gzip size](https://badgen.net/badgesize/gzip/https/unpkg.com/@atomik-color/core/dist/index.js)
+
 [Demo](https://codesandbox.io/s/atomik-colorcomponent-j3pyf)
 
 ## Installation
