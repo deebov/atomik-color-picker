@@ -3,18 +3,18 @@ import { ALPHA_MAX } from "../color/constants";
 import { ColorState } from "./useColorState";
 import useSlider from "./useSlider";
 
-type UseAlphaProps = {
+type UseAlphaSliderProps = {
   state: ColorState;
   ref: RefObject<HTMLElement>;
 };
 
-type UseAlpha = (
-  props: UseAlphaProps
+type UseAlphaSlider = (
+  props: UseAlphaSliderProps
 ) => {
   sliderProps: HTMLAttributes<HTMLElement>;
 };
 
-const useAlpha: UseAlpha = ({ state, ref }) => {
+const useAlphaSlider: UseAlphaSlider = ({ state, ref }) => {
   const { sliderProps } = useSlider({
     ref,
     direction: "horizontal",
@@ -28,4 +28,4 @@ const useAlpha: UseAlpha = ({ state, ref }) => {
   return { sliderProps };
 };
 
-export default useAlpha;
+export default useAlphaSlider;

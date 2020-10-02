@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, useRef } from "react";
-import { ColorState, useColorRectangle } from "@atomik-color/core";
+import { ColorState, useColorBoard } from "@atomik-color/core";
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
 
@@ -9,9 +9,9 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   state: ColorState;
 }
 
-const ColorRectangle: React.FC<Props> = ({ state, ...props }) => {
+const ColorBoard: React.FC<Props> = ({ state, ...props }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { containerProps, descriptionProps } = useColorRectangle({
+  const { containerProps, descriptionProps } = useColorBoard({
     state,
     ref,
   });
@@ -40,4 +40,4 @@ const ColorRectangle: React.FC<Props> = ({ state, ...props }) => {
   );
 };
 
-export default ColorRectangle;
+export default ColorBoard;

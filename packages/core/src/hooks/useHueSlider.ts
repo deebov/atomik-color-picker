@@ -3,18 +3,18 @@ import { HUE_MAX } from "../color/constants";
 import { ColorState } from "./useColorState";
 import useSlider from "./useSlider";
 
-type UseHueProps = {
+type UseHueSliderProps = {
   state: ColorState;
   ref: RefObject<HTMLElement>;
 };
 
-type UseHue = (
-  props: UseHueProps
+type UseHueSlider = (
+  props: UseHueSliderProps
 ) => {
   sliderProps: HTMLAttributes<HTMLElement>;
 };
 
-const useHue: UseHue = ({ state, ref }) => {
+const useHueSlider: UseHueSlider = ({ state, ref }) => {
   const { sliderProps } = useSlider({
     ref,
     direction: "horizontal",
@@ -28,4 +28,4 @@ const useHue: UseHue = ({ state, ref }) => {
   return { sliderProps };
 };
 
-export default useHue;
+export default useHueSlider;

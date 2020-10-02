@@ -99,7 +99,7 @@ Color object that's used across the package.
 | `hex` | hex value without `#` prefix                                                  | `string` |
 | `str` | if alpha is full then returns hex value with `#` prefix otherwise rgba string | `string` |
 
-### useColorRectangle
+### useColorBoard
 
 **Props**
 
@@ -111,7 +111,7 @@ Color object that's used across the package.
 | `ariaValueFormat?` | Formatted string used for `aria-valuetext` | `string`                 | -       |
 | `ariaDescription?` | Aria description                           | `string`                 | -       |
 
-### useHue
+### useHueSlider
 
 **Props**
 
@@ -120,7 +120,7 @@ Color object that's used across the package.
 | `state` | Color state                              | `ColorState`             | -       |
 | `ref`   | Ref of the element used as hue container | `RefObject<HTMLElement>` | -       |
 
-### useAlpha
+### useAlphaSlider
 
 **Props**
 

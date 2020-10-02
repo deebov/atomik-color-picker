@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import ColorRectangle from "./ColorRectangle";
+import ColorBoard from "./ColorBoard";
 import HueSlider from "./Sliders/HueSlider";
 import AlphaSlider from "./Sliders/AlphaSlider";
 import { useColorState, UseColorProps } from "@atomik-color/core";
@@ -22,7 +22,7 @@ const ColorPicker = forwardRef<HTMLDivElement, Props>(
         ref={ref}
         style={{ maxWidth: "220px" }}
       >
-        <ColorRectangle style={{ marginBottom: "10px" }} state={state} />
+        <ColorBoard style={{ marginBottom: "10px" }} state={state} />
         <div
           style={{
             display: "flex",

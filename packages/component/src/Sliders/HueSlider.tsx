@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, memo, useRef } from "react";
-import { useHue, ColorState } from "@atomik-color/core";
+import { useHueSlider, ColorState } from "@atomik-color/core";
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
 
@@ -31,7 +31,7 @@ const HueSlider: React.FC<Props> = memo(
     // console.log("hue");
 
     const ref = useRef<HTMLDivElement>(null);
-    const { sliderProps } = useHue({ ref, state });
+    const { sliderProps } = useHueSlider({ ref, state });
     return (
       <div
         {...props}

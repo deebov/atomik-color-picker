@@ -4,7 +4,7 @@ import Key from "../utils/keys";
 import { SV_MAX } from "../color/constants";
 import useSlider from "./useSlider";
 
-type UseColorRectangleProps = {
+type UseColorBoardProps = {
   state: ColorState;
   ref: RefObject<HTMLElement>;
   ariaLabel?: string;
@@ -12,8 +12,8 @@ type UseColorRectangleProps = {
   ariaDescription?: string;
 };
 
-type UseColorRectangle = (
-  props: UseColorRectangleProps
+type UseColorBoard = (
+  props: UseColorBoardProps
 ) => {
   containerProps: HTMLAttributes<HTMLElement>;
   descriptionProps: HTMLAttributes<HTMLElement>;
@@ -28,7 +28,7 @@ const ariaStrings = {
 
 const descriptionId = "color-picker-desc";
 
-const useColorRectangle: UseColorRectangle = ({
+const useColorBoard: UseColorBoard = ({
   state,
   ref,
   ariaDescription = ariaStrings.ariaDescription,
@@ -113,4 +113,4 @@ const useColorRectangle: UseColorRectangle = ({
   };
 };
 
-export default useColorRectangle;
+export default useColorBoard;
