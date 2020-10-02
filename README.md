@@ -26,9 +26,8 @@ import { str2Color } from "@atomik-color/core"
 
 // Controlled
 import { useState } from  "react";
-import { str2Color } from "@atomik-color/core"
 
-const [color, setColor] = useState(str2Color("#000"))
+const [color, setColor] = useState()
 
 <ColorPicker value={color} onChange={setColor} />
 ```

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { str2Color } from "@atomik-color/core";
-import ColorPicker from "../src";
+import ColorPicker from "..";
 
 export const ColorPickerDefault = () => <ColorPicker showPreview={true} />;
 
@@ -9,7 +9,7 @@ export const ColorPickerDefaultValue = () => (
 );
 
 export const ColorPickerControlled = () => {
-  const [color, setColor] = useState(str2Color("#000"));
+  const [color, setColor] = useState(str2Color("#09f"));
 
   return <ColorPicker showPreview={true} value={color} onChange={setColor} />;
 };

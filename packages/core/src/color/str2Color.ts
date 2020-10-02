@@ -21,7 +21,7 @@ const getColorFromRGBA = ({ r, g, b, a }: RGBA) => {
  * Alpha defaults to 100 if not specified in `inputColor`.
  * Returns undefined if the color string is invalid/not recognized.
  */
-export function getColorFromString(inputColor: string): TColor | undefined {
+export function str2Color(inputColor: string): TColor | undefined {
   const color = cssColor(inputColor);
 
   if (!color) {

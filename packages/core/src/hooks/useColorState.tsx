@@ -16,7 +16,6 @@ import {
   isValidHex,
   isValidRGBValue,
 } from "../color/utils";
-import { cssColor } from "../color/cssColor";
 
 export type UseColorProps = {
   defaultValue?: TColor;

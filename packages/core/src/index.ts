@@ -1,2 +1,2 @@
 export * from "./hooks";
-export * from "./color/converters";
+export * from "./color";
