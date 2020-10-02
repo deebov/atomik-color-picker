@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, memo, useRef } from "react";
-import { useHue, ColorPickerState } from "@atomik-color/core";
+import { useHue, ColorState } from "@atomik-color/core";
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
 
@@ -23,7 +23,7 @@ const hueStyle = {
 };
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  state: ColorPickerState;
+  state: ColorState;
 }
 
 const HueSlider: React.FC<Props> = memo(

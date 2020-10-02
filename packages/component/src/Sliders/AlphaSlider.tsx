@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, memo, useRef } from "react";
-import { useAlpha, ColorPickerState } from "@atomik-color/core";
+import { useAlpha, ColorState } from "@atomik-color/core";
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
 
@@ -11,13 +11,11 @@ const alphaStyle = {
 };
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  state: ColorPickerState;
+  state: ColorState;
 }
 
 const AlphaSlider: React.FC<Props> = memo(
   ({ state, ...props }) => {
-    // console.log("alpha");
-
     const ref = useRef<HTMLDivElement>(null);
     const { sliderProps } = useAlpha({ ref, state });
     return (

@@ -1,10 +1,10 @@
 import { HTMLAttributes, RefObject } from "react";
 import { ALPHA_MAX } from "../color/constants";
-import { ColorPickerState } from "./useColorPickerState";
+import { ColorState } from "./useColorState";
 import useSlider from "./useSlider";
 
 type UseAlphaProps = {
-  state: ColorPickerState;
+  state: ColorState;
   ref: RefObject<HTMLElement>;
 };
 

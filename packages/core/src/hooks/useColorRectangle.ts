@@ -1,11 +1,11 @@
 import React, { HTMLAttributes, RefObject, useRef } from "react";
-import { ColorPickerState } from "./useColorPickerState";
+import { ColorState } from "./useColorState";
 import Key from "../utils/keys";
 import { SV_MAX } from "../color/constants";
 import useSlider from "./useSlider";
 
 type UseColorRectangleProps = {
-  state: ColorPickerState;
+  state: ColorState;
   ref: RefObject<HTMLElement>;
   ariaLabel?: string;
   ariaValueFormat?: string;

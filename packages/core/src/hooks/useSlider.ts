@@ -34,7 +34,7 @@ type Direction =
       onChange?: ({ x, y }: { x: number; y: number }) => void;
     };
 
-type UseSliderProps = Direction & {
+export type UseSliderProps = Direction & {
   ref: RefObject<HTMLElement>;
   maxValue?: number;
   minValue?: number;

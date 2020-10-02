@@ -26,13 +26,14 @@
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
     "build": "rollup -c rollup.config.js",
+    "dev": "rollup -c rollup.config.dev.js --watch",
     "build:types": "tsc"
   },
   "peerDependencies": {
     "react": "16.x"
   },
   "dependencies": {
-    "@atomik-color/core": "1.0.0"
+    "@atomik-color/core": "1.0.1"
   },
   "devDependencies": {
     "typescript": "^4.0.3"

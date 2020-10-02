@@ -17,17 +17,15 @@ import {
   isValidRGBValue,
 } from "../color/utils";
 
-export type UseColorPickerProps = {
+export type UseColorProps = {
   defaultValue?: TColor;
   value?: TColor;
   onChange?: (value: TColor) => void;
 };
 
-export type UseColorPickerState = (
-  props: UseColorPickerProps
-) => ColorPickerState;
+export type UseColorState = (props: UseColorProps) => ColorState;
 
-export type ColorPickerState = {
+export type ColorState = {
   color: TColor;
   setS: (s: number) => void;
   setV: (v: number) => void;
@@ -113,7 +111,7 @@ const rotateHSVValue = (
   });
 };
 
-const useColorPickerState: UseColorPickerState = (props) => {
+const useColorState: UseColorState = (props) => {
   const [color, setColorState] = useState<TColor>(
     props.defaultValue || initalColor
   );
@@ -218,4 +216,4 @@ const useColorPickerState: UseColorPickerState = (props) => {
   };
 };
 
-export default useColorPickerState;
+export default useColorState;

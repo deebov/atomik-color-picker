@@ -1,10 +1,10 @@
 import { HTMLAttributes, RefObject } from "react";
 import { HUE_MAX } from "../color/constants";
-import { ColorPickerState } from "./useColorPickerState";
+import { ColorState } from "./useColorState";
 import useSlider from "./useSlider";
 
 type UseHueProps = {
-  state: ColorPickerState;
+  state: ColorState;
   ref: RefObject<HTMLElement>;
 };
 
