@@ -36,7 +36,7 @@ const [color, setColor] = useState()
 
 ## Supported colors
 
-All color related things are handled in `useColorState`. And the color value is converted to multiple formats automatically, so you don't have to deal with color conversion 😄. Available color formats are `rgb`, `hsv`, `hex`, `alpha` and string value (`hsl` coming soon). You can access them via `state.color`.
+The color value is converted to multiple formats automatically, so you don't have to deal with color conversion 😄. Available color formats are `rgb`, `hsv`, `hex`, `alpha` and string value (`hsl` coming soon). You can access them via `state.color`.
 
 ## API
 
@@ -56,54 +56,75 @@ All color related things are handled in `useColorState`. And the color value is 
 `useColorState(props: UseColorStateProps): UseColorState`
 
 **Props**
-|Name|Description| Type| Default |
-|--|--|--|--|
-|`value?` |Present color value | `TColor`| - |
-|`defaultValue?` |Default color |`TColor`| - |
-|`onChange?` |Callback function for tracking the state change | `(value:TColor) => void`| - |
+
+| Name            | Description                                     | Type                     | Default |
+| --------------- | ----------------------------------------------- | ------------------------ | ------- |
+| `value?`        | Present color value                             | `TColor`                 | -       |
+| `defaultValue?` | Default color                                   | `TColor`                 | -       |
+| `onChange?`     | Callback function for tracking the state change | `(value:TColor) => void` | -       |
 
 **Returns**
 
 `UseColorState`
-|Name|Description| Type|
-|--|--|--|
-|`color` | Color value | `TColor` |
-|`setH(value:number)` | sets Hue (0-359)
-|`setS(value:number)` | sets Saturation (0-100)
-|`setV(value:number)` | sets Value (Brightness)
-|`setSV(s:number, v:number)` | sets Saturation and Value
-|`setR(value:number)` | sets Red (0-255)
-|`setG(value:number)` | sets Green (0-255)
-|`setB(value:number)` | sets Blue (0-255)
-|`setA(value:number)` | sets Alpha (0-100)
-|`rotateH(amount:number)` | rotates Hue by `amount`
-|`rotateS(amount:number)` | rotates Saturation by `amount`
-|`rotateV(amount:number)` | rotates Value (Brightness) by `amount`
-|`rotateA(amount:number)` | rotates Alpha by `amount`
+
+| Name                        | Description                            | Type     |
+| --------------------------- | -------------------------------------- | -------- |
+| `color`                     | Color value                            | `TColor` |
+| `setH(value:number)`        | sets Hue (0-359)                       |
+| `setS(value:number)`        | sets Saturation (0-100)                |
+| `setV(value:number)`        | sets Value (Brightness)                |
+| `setSV(s:number, v:number)` | sets Saturation and Value              |
+| `setR(value:number)`        | sets Red (0-255)                       |
+| `setG(value:number)`        | sets Green (0-255)                     |
+| `setB(value:number)`        | sets Blue (0-255)                      |
+| `setA(value:number)`        | sets Alpha (0-100)                     |
+| `rotateH(amount:number)`    | rotates Hue by `amount`                |
+| `rotateS(amount:number)`    | rotates Saturation by `amount`         |
+| `rotateV(amount:number)`    | rotates Value (Brightness) by `amount` |
+| `rotateA(amount:number)`    | rotates Alpha by `amount`              |
+
+**`TColor`**
+
+Color object that's used across the package.
+
+| Name  | Description                                                                   | Type     |
+| ----- | ----------------------------------------------------------------------------- | -------- |
+| `r`   | Red                                                                           | `number` |
+| `g`   | Green                                                                         | `number` |
+| `b`   | Blue                                                                          | `number` |
+| `a`   | Alpha (0-100)                                                                 | `number` |
+| `h`   | hue                                                                           | `number` |
+| `s`   | Saturation                                                                    | `number` |
+| `v`   | Value (Brightness)                                                            | `number` |
+| `hex` | hex value without `#` prefix                                                  | `string` |
+| `str` | if alpha is full then returns hex value with `#` prefix otherwise rgba string | `string` |
 
 ### useColorRectangle
 
 **Props**
-|Name|Description| Type| Default |
-|--|--|--|--|
-|`state` |Color state | `ColorState`| - |
-|`ref` |Ref of the element used as color rectangle |`RefObject<HTMLElement>`| - |
-|`ariaLabel?` |Aria label | `string`| - |
-|`ariaValueFormat?` |Formatted string used for `aria-valuetext` | `string`| - |
-|`ariaDescription?` |Aria description | `string`| - |
+
+| Name               | Description                                | Type                     | Default |
+| ------------------ | ------------------------------------------ | ------------------------ | ------- |
+| `state`            | Color state                                | `ColorState`             | -       |
+| `ref`              | Ref of the element used as color rectangle | `RefObject<HTMLElement>` | -       |
+| `ariaLabel?`       | Aria label                                 | `string`                 | -       |
+| `ariaValueFormat?` | Formatted string used for `aria-valuetext` | `string`                 | -       |
+| `ariaDescription?` | Aria description                           | `string`                 | -       |
 
 ### useHue
 
 **Props**
-|Name|Description| Type| Default |
-|--|--|--|--|
-|`state` |Color state | `ColorState`| - |
-|`ref` |Ref of the element used as hue container |`RefObject<HTMLElement>`| - |
+
+| Name    | Description                              | Type                     | Default |
+| ------- | ---------------------------------------- | ------------------------ | ------- |
+| `state` | Color state                              | `ColorState`             | -       |
+| `ref`   | Ref of the element used as hue container | `RefObject<HTMLElement>` | -       |
 
 ### useAlpha
 
 **Props**
-|Name|Description| Type| Default |
-|--|--|--|--|
-|`state` |Color state | `ColorState`| - |
-|`ref` |Ref of the element used as alpha container |`RefObject<HTMLElement>`| - |
+
+| Name    | Description                                | Type                     | Default |
+| ------- | ------------------------------------------ | ------------------------ | ------- |
+| `state` | Color state                                | `ColorState`             | -       |
+| `ref`   | Ref of the element used as alpha container | `RefObject<HTMLElement>` | -       |
