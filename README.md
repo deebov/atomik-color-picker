@@ -44,12 +44,6 @@ All color related things are handled in `useColorState`. And the color value is 
 
 **Props**
 
-```typescript
-interface Props extends UseColorStateProps {
-  showPreview?: boolean;
-}
-```
-
 | Name            | Description                                     | Type                     | Default |
 | --------------- | ----------------------------------------------- | ------------------------ | ------- |
 | `value?`        | Present color value                             | `TColor`                 | -       |
@@ -67,6 +61,25 @@ interface Props extends UseColorStateProps {
 |`value?` |Present color value | `TColor`| - |
 |`defaultValue?` |Default color |`TColor`| - |
 |`onChange?` |Callback function for tracking the state change | `(value:TColor) => void`| - |
+
+**Returns**
+
+`UseColorState`
+|Name|Description| Type|
+|--|--|--|
+|`color` | Color value | `TColor` |
+|`setH(value:number)` | sets Hue (0-359)
+|`setS(value:number)` | sets Saturation (0-100)
+|`setV(value:number)` | sets Value (Brightness)
+|`setSV(s:number, v:number)` | sets Saturation and Value
+|`setR(value:number)` | sets Red (0-255)
+|`setG(value:number)` | sets Green (0-255)
+|`setB(value:number)` | sets Blue (0-255)
+|`setA(value:number)` | sets Alpha (0-100)
+|`rotateH(amount:number)` | rotates Hue by `amount`
+|`rotateS(amount:number)` | rotates Saturation by `amount`
+|`rotateV(amount:number)` | rotates Value (Brightness) by `amount`
+|`rotateA(amount:number)` | rotates Alpha by `amount`
 
 ### useColorRectangle
 
