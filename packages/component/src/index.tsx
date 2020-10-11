@@ -16,12 +16,7 @@ const ColorPicker = forwardRef<HTMLDivElement, Props>(
     const state = useColorState(props);
 
     return (
-      <div
-        className={styles.container}
-        role="group"
-        ref={ref}
-        style={{ maxWidth: "220px" }}
-      >
+      <div className={styles.container} role="group" ref={ref}>
         <ColorBoard style={{ marginBottom: "10px" }} state={state} />
         <div
           style={{
