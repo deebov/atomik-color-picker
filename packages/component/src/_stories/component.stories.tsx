@@ -3,6 +3,9 @@ import { str2Color } from "@atomik-color/core";
 import ColorPicker from "..";
 
 export const ColorPickerDefault = () => <ColorPicker showPreview={true} />;
+export const ColorPickerParams = () => (
+  <ColorPicker showPreview={true} showParams />
+);
 
 export const ColorPickerDefaultValue = () => (
   <ColorPicker showPreview={true} defaultValue={str2Color("#000")} />

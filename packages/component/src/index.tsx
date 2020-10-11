@@ -9,10 +9,11 @@ import Params from "./Params";
 
 interface Props extends UseColorProps {
   showPreview?: boolean;
+  showParams?: boolean;
 }
 
 const ColorPicker = forwardRef<HTMLDivElement, Props>(
-  ({ showPreview = true, ...props }, ref) => {
+  ({ showPreview = true, showParams = false, ...props }, ref) => {
     const state = useColorState(props);
 
     return (
@@ -32,6 +33,7 @@ const ColorPicker = forwardRef<HTMLDivElement, Props>(
           {showPreview && <div style={{ width: "10px" }} />}
           {showPreview && <Preview color={state.color.str} />}
         </div>
+        {showParams && <Params state={state} />}
       </div>
     );
   }
