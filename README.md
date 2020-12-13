@@ -12,7 +12,7 @@ Hooks (and component) for building accessible color picker for React. 0 dependec
 - ✅ Touch support - use with pen or mobile devices without glitches
 - ✅ Modular - made with hooks⚛️, atomik utils and components
 - ✅ Tiny - 0 dependecies, ~3K
-- ✅ Fast🚀 - fastest algorithms on the internet (src: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool)
+- ✅ Fast🚀 - fastest algorithms on the internet
 - ✅ Beautiful UI 😎🍑🚀
 
 ## Installation
