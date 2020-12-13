@@ -9,8 +9,10 @@ Hooks (and component) for building accessible color picker for React. 0 dependec
 ## Features
 - ✅ Accessible - everything is accessible for screen-readers and by keyboard⌨️
 - ✅ Screen-reader - color values are human-readable for screen-readers👓
+- ✅ Touch support - use with pen or mobile devices without glitches
 - ✅ Modular - made with hooks⚛️, atomik utils and components
 - ✅ Tiny - 0 dependecies, ~3K
+- ✅ Fast🚀 - fastest algorithms on the internet (src: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool)
 - ✅ Beautiful UI 😎🍑🚀
 
 ## Installation
@@ -43,7 +45,13 @@ const [color, setColor] = useState()
 
 ## Supported colors
 
-The color value is converted to multiple formats automatically, so you don't have to deal with color conversion 😄. Available color formats are `rgb`, `hsv`, `hex`, `alpha` and string value (`hsl` coming soon). You can access them via `state.color`.
+- `RGB`
+- `HSV`
+- `HEX`
+- `HSL` coming soon
+- Alpha
+
+The color value is converted to multiple formats automatically, so you don't have to deal with color conversion 😄. You can access them via `state.color`.
 
 ## API
 
