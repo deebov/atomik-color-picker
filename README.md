@@ -13,6 +13,7 @@ Hooks (and component) for building accessible color picker for React. 0 dependec
 - ✅ Modular - made with hooks⚛️, atomik utils and components
 - ✅ Tiny - 0 dependecies, ~3K
 - ✅ Fast🚀 - optimized and hand-picked algorithms
+- ✅ Dark mode 🌑 (coming soon)
 - ✅ Beautiful UI 😎🍑🚀
 
 ## Installation
