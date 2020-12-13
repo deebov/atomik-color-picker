@@ -6,6 +6,13 @@ Hooks (and component) for building accessible color picker for React. 0 dependec
 
 [Demo](https://j3pyf.csb.app/)
 
+## Features
+- ✅ Accessible - everything is accessible for screen-readers and by keyboard⌨️
+- ✅ Screen-reader - color values are human-readable for screen-readers👓
+- ✅ Modular - made with hooks⚛️, atomik utils and components
+- ✅ Tiny - 0 dependecies, ~3K
+- ✅ Beautiful UI 😎🍑🚀
+
 ## Installation
 
 > This examples shows how to install and use the color picker component, not the hooks! If you want to build your own color picker using our hooks see this [example](https://codesandbox.io/s/atomik-color-hooks-k85hw)
