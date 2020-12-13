@@ -30,13 +30,17 @@ yarn add @atomik-color/component
 import ColorPicker from  "@atomik-color/component"
 
 <ColorPicker />
+```
 
-// Default value
+### With default value
+```jsx
 import { str2Color } from "@atomik-color/core"
 
 <ColorPicker defaultValue={str2Color("#000")} />
+```
 
-// Controlled
+### Controlled value
+```jsx
 import { useState } from  "react";
 
 const [color, setColor] = useState()
