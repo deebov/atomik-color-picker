@@ -4,7 +4,7 @@ Hooks (and component) for building accessible color picker for React. 0 dependec
 
 ![typescript](https://badgen.net/badge/icon/typescript?icon=typescript&label) ![gzip size](https://badgen.net/badgesize/gzip/https/unpkg.com/@atomik-color/core/dist/index.js)
 
-[Live Demo](https://j3pyf.csb.app/)
+[Live Demo](https://jzk8hg.csb.app/)
 
 ## Features
 - ✅ Accessible - everything is accessible for screen-readers and by keyboard⌨️
