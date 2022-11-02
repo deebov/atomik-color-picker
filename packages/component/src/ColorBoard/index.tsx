@@ -1,9 +1,13 @@
-import React, { HTMLAttributes, useRef } from "react";
+import React, { HTMLAttributes, useEffect, useRef, useState } from "react";
 import { ColorState, useColorBoard } from "@atomik-color/core";
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
 
 const SV_MAX = 100;
+
+const getPercentage = (num: number, percentage: number) => {
+  return (num / 100) * percentage;
+};
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   state: ColorState;
@@ -11,10 +15,38 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 const ColorBoard: React.FC<Props> = ({ state, ...props }) => {
   const ref = useRef<HTMLDivElement>(null);
+
+  const [boardWidth, setBoardWidth] = useState(0);
+  const [boardHeight, setBoardHeight] = useState(0);
+
+  useEffect(() => {
+    const resizeListener = (event: UIEvent) => {
+      if ((event.target as HTMLDivElement).offsetWidth !== boardWidth) {
+        setBoardWidth((event.target as HTMLDivElement).offsetWidth);
+      }
+      if ((event.target as HTMLDivElement).offsetHeight !== boardHeight) {
+        setBoardHeight((event.target as HTMLDivElement).offsetHeight);
+      }
+    };
+
+    if (ref.current) {
+      setBoardWidth(ref.current.offsetWidth);
+      setBoardHeight(ref.current.offsetHeight);
+      ref.current.addEventListener("resize", resizeListener);
+    }
+
+    return () => {
+      ref.current?.removeEventListener("resize", resizeListener);
+    };
+  }, [ref.current]);
+
   const { containerProps, descriptionProps } = useColorBoard({
     state,
     ref,
   });
+
+  const translateX = getPercentage(boardWidth, state.color.s);
+  const translateY = getPercentage(boardHeight, SV_MAX - state.color.v);
 
   return (
     <div
@@ -27,8 +59,11 @@ const ColorBoard: React.FC<Props> = ({ state, ...props }) => {
       <div className={commonStyles.vHidden} {...descriptionProps} />
       <div
         style={{
-          left: state.color.s + "%",
-          top: SV_MAX - state.color.v + "%",
+          left: 0,
+          top: 0,
+
+          transform: `translate(calc(${translateX}px - 50%), calc(${translateY}px - 50%))`,
+
           backgroundColor: "#" + state.color.hex,
           ...props.style,
         }}

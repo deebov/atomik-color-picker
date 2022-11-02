@@ -13,6 +13,7 @@ const AlphaSlider: React.FC<Props> = memo(
   ({ state, ...props }) => {
     const ref = useRef<HTMLDivElement>(null);
     const { sliderProps } = useAlphaSlider({ ref, state });
+
     return (
       <div
         {...props}
