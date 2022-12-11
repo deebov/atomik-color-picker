@@ -1,6 +1,6 @@
 {
   "name": "@atomik-color/component",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "license": "MIT",
   "author": "Dilshod Turobov <deebov@yandex.com",
   "homepage": "https://github.com/deebov/color-picker",
@@ -33,7 +33,7 @@
     "react": "16.x"
   },
   "dependencies": {
-    "@atomik-color/core": "^1.0.12"
+    "@atomik-color/core": "^1.0.13"
   },
   "devDependencies": {
     "typescript": "^4.0.3"
