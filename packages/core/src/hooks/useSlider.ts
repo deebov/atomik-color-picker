@@ -1,6 +1,13 @@
-import { HTMLAttributes, RefObject } from "react";
+import {
+  HTMLAttributes,
+  RefObject,
+  useCallback,
+  useEffect,
+  useRef,
+} from "react";
 import Key from "../utils/keys";
 import { clamp } from "../utils/clamp";
+import { preventScroll } from "./preventScroll";
 
 const calculateX = (
   e: PointerEvent,
@@ -46,9 +53,7 @@ export type UseSliderProps = Direction & {
   bigStep?: number;
 };
 
-type UseSlider = (
-  props: UseSliderProps
-) => {
+type UseSlider = (props: UseSliderProps) => {
   sliderProps: HTMLAttributes<HTMLElement>;
 };
 
@@ -64,6 +69,11 @@ const useSlider: UseSlider = ({
   bigStep = 10,
   ...props
 }) => {
+  const restoreScrollRef = useRef<() => void>(() => {});
+
+  // Restore scroll before unmounting
+  useEffect(() => restoreScrollRef.current, []);
+
   const onKeyDown = (event: React.KeyboardEvent) => {
     // Allow users to tab out. Don't prevent default if Tab is pressed
     if (event.key !== Key.Tab) {
@@ -106,48 +116,58 @@ const useSlider: UseSlider = ({
     }
   };
 
-  const onPointerDown = (event: React.PointerEvent) => {
-    if (!ref.current) {
-      return;
-    }
-    event.preventDefault();
-    ref.current.focus();
-    document.body.style.touchAction = "none";
-    ref.current.onpointermove = onPointerMove;
-    ref.current?.setPointerCapture(event.pointerId);
-    onPointerMove(event as any);
-  };
+  const onPointerMove = useCallback(
+    (event: PointerEvent) => {
+      if (!ref.current || typeof props.onChange !== "function") {
+        return;
+      }
+      event.preventDefault();
+      const rectSize = ref.current.getBoundingClientRect();
 
-  const onPointerMove = (event: PointerEvent) => {
-    if (!ref.current || typeof props.onChange !== "function") {
-      return;
-    }
-    event.preventDefault();
-    const rectSize = ref.current.getBoundingClientRect();
+      if (props.direction === "both") {
+        let x = calculateX(event, rectSize, maxValue, minValue);
+        let y = calculateY(event, rectSize, maxValue, minValue);
+        return props.onChange({ x, y });
+      }
+      if (props.direction === "horizontal") {
+        let x = calculateX(event, rectSize, maxValue, minValue);
+        return props.onChange(x);
+      }
+      if (props.direction === "vertical") {
+        let y = calculateY(event, rectSize, maxValue, minValue);
+        return props.onChange(y);
+      }
+    },
+    [props.direction, props.onChange]
+  );
 
-    if (props.direction === "both") {
-      let x = calculateX(event, rectSize, maxValue, minValue);
-      let y = calculateY(event, rectSize, maxValue, minValue);
-      return props.onChange({ x, y });
-    }
-    if (props.direction === "horizontal") {
-      let x = calculateX(event, rectSize, maxValue, minValue);
-      return props.onChange(x);
-    }
-    if (props.direction === "vertical") {
-      let y = calculateY(event, rectSize, maxValue, minValue);
-      return props.onChange(y);
-    }
-  };
+  const onPointerDown = useCallback(
+    (event: React.PointerEvent) => {
+      if (!ref.current) {
+        return;
+      }
+      event.preventDefault();
+      restoreScrollRef.current = preventScroll();
 
-  const onPointerUp = (event: React.PointerEvent) => {
+      ref.current.focus();
+      ref.current.onpointermove = onPointerMove;
+      ref.current?.setPointerCapture(event.pointerId);
+
+      onPointerMove(event as any);
+    },
+    [onPointerMove]
+  );
+
+  const onPointerUp = useCallback((event: React.PointerEvent) => {
     if (!ref.current) {
       return;
     }
     ref.current.onpointermove = null;
     ref.current.releasePointerCapture(event.pointerId);
-    document.body.style.touchAction = "auto";
-  };
+
+    restoreScrollRef.current();
+    restoreScrollRef.current = () => {};
+  }, []);
 
   return {
     sliderProps: {
@@ -155,6 +175,7 @@ const useSlider: UseSlider = ({
       onPointerDown,
       onPointerUp,
       onKeyDown,
+      onPointerCancel: onPointerUp,
       role: "slider",
       "aria-valuemin": minValue,
       "aria-valuemax": maxValue,
