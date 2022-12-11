@@ -1,6 +1,6 @@
 module.exports = {
     stories: ["../packages/**/*.stories.tsx"],
-    addons: ["storybook-css-modules-preset"],
+    addons: [],
     framework: "@storybook/react",
     core: {
         builder: "@storybook/builder-vite",
