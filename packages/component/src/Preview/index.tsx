@@ -1,11 +1,12 @@
 import React, { HTMLAttributes } from "react";
+import { useColorContext } from "../ColorPicker";
 import commonStyles from "../common.module.css";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-  color: string;
-}
+interface Props extends HTMLAttributes<HTMLDivElement> {}
 
-const Preview: React.FC<Props> = ({ color, ...props }) => {
+const Preview: React.FC<Props> = ({  ...props }) => {
+  const state = useColorContext();
+
   return (
     <div
       {...props}
@@ -19,7 +20,7 @@ const Preview: React.FC<Props> = ({ color, ...props }) => {
       <div
         style={{
           boxShadow: "rgba(0, 0, 0, 0.2) 0px 0px 0px 0.6px inset",
-          backgroundColor: color,
+          backgroundColor: state.color.str,
           width: "40px",
           height: "40px",
         }}

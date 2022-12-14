@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { ColorState } from "@atomik-color/core";
 import styles from "./styles.module.css";
+import { useColorContext } from "../ColorPicker";
 
 const Field = ({ label, value, onChange, max = 255, type = "number" }: any) => {
   return (
@@ -18,15 +18,23 @@ const Field = ({ label, value, onChange, max = 255, type = "number" }: any) => {
   );
 };
 
-interface Props {
-  state: ColorState;
-}
+interface Props {}
 
 type Mode = "hex" | "rgba" | "hsva" | "hsl";
 
 const modes: Mode[] = ["hex", "rgba", "hsva"];
 
-const Params: React.FC<Props> = ({ state }) => {
+const Params: React.FC<Props> = ({  }) => {
+  const state = useColorContext();
+  const [mode, setMode] = useState<Mode>("hex");
+
+  const toggleMode = () => {
+    const index = modes.indexOf(mode);
+    const newIndex = index === modes.length - 1 ? 0 : index + 1;
+
+    setMode(modes[newIndex]);
+  };
+
   const onChangeR = (e: React.ChangeEvent<HTMLInputElement>) => {
     state.setR(parseFloat(e.target.value));
   };
@@ -51,14 +59,7 @@ const Params: React.FC<Props> = ({ state }) => {
   const onChangeHex = (e: React.ChangeEvent<HTMLInputElement>) => {
     state.setHex(e.target.value);
   };
-  const [mode, setMode] = useState<Mode>("hex");
 
-  const toggleMode = () => {
-    const index = modes.indexOf(mode);
-    const newIndex = index === modes.length - 1 ? 0 : index + 1;
-
-    setMode(modes[newIndex]);
-  };
 
   return (
     <div style={{ display: "flex", marginTop: "10px", alignItems: "center" }}>

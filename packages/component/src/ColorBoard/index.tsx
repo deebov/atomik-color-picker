@@ -1,15 +1,16 @@
 import React, { HTMLAttributes, useRef } from "react";
-import { ColorState, useColorBoard } from "@atomik-color/core";
+import { useColorBoard } from "@atomik-color/core";
 import styles from "./styles.module.css";
 import commonStyles from "../common.module.css";
+import { useColorContext } from "../ColorPicker";
 
 const SV_MAX = 100;
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-  state: ColorState;
-}
+interface Props extends HTMLAttributes<HTMLDivElement> {}
 
-const ColorBoard: React.FC<Props> = ({ state, ...props }) => {
+const ColorBoard: React.FC<Props> = ({ ...props }) => {
+  const state = useColorContext();
+
   const ref = useRef<HTMLDivElement>(null);
   const { containerProps, descriptionProps } = useColorBoard({
     state,
@@ -30,7 +31,6 @@ const ColorBoard: React.FC<Props> = ({ state, ...props }) => {
           left: state.color.s + "%",
           top: SV_MAX - state.color.v + "%",
           backgroundColor: "#" + state.color.hex,
-          ...props.style,
         }}
         className={commonStyles.thumb}
       />
