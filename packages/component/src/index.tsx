@@ -2,6 +2,9 @@ import React, { forwardRef } from "react";
 import ColorPicker, { ColorPickerProps } from "./ColorPicker";
 import styles from "./index.module.css";
 
+export { default as ColorPicker } from "./ColorPicker";
+export type { ColorPickerProps } from "./ColorPicker";
+
 interface Props extends Omit<ColorPickerProps, "children"> {
     showPreview?: boolean;
     showParams?: boolean;
