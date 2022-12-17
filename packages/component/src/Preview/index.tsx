@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react";
 import { useColorContext } from "../ColorPicker";
 import commonStyles from "../common.module.css";
-import styles from "../styles.module.css";
+import styles from "./styles.module.css";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
