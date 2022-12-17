@@ -116,7 +116,7 @@ const useColorState: UseColorState = (props) => {
     if (props.value) {
       setColorState(props.value);
     }
-  }, [props.value]);
+  }, [JSON.stringify(props.value)]);
 
   const setValue: typeof setColorState = (value) => {
     if (typeof props.onChange === "function") {

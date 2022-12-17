@@ -10,11 +10,11 @@ const Preview: React.FC<Props> = ({  ...props }) => {
   return (
     <div
       {...props}
-      className={commonStyles.transBackground}
+      className={[commonStyles.transBackground, props.className || ''].join(' ')}
       style={{
-        ...props.style,
         display: "inline-block",
         backgroundImage: `url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJUlEQVQYV2N89erVfwY0ICYmxoguxjgUFKI7GsTH5m4M3w1ChQC1/Ca8i2n1WgAAAABJRU5ErkJggg==)`,
+        ...props.style,
       }}
     >
       <div
