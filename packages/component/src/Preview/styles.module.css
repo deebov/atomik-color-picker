@@ -1,0 +1,7 @@
+.preview {
+    display: inline-block;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 0.6px inset;
+    background-blend-mode: darken;
+    width: 40px;
+    height: 40px;
+}

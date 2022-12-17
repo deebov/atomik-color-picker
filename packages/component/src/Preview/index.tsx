@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from "react";
 import { useColorContext } from "../ColorPicker";
 import commonStyles from "../common.module.css";
+import styles from "../styles.module.css";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
@@ -10,22 +11,12 @@ const Preview: React.FC<Props> = ({  ...props }) => {
   return (
     <div
       {...props}
-      className={[commonStyles.transBackground, props.className || ''].join(' ')}
+      className={[commonStyles.transBackground, styles.preview, props.className || ''].join(' ')}
       style={{
-        display: "inline-block",
-        backgroundImage: `url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJUlEQVQYV2N89erVfwY0ICYmxoguxjgUFKI7GsTH5m4M3w1ChQC1/Ca8i2n1WgAAAABJRU5ErkJggg==)`,
+        backgroundColor: state.color.str,
         ...props.style,
       }}
-    >
-      <div
-        style={{
-          boxShadow: "rgba(0, 0, 0, 0.2) 0px 0px 0px 0.6px inset",
-          backgroundColor: state.color.str,
-          width: "40px",
-          height: "40px",
-        }}
-      />
-    </div>
+  />
   );
 };
 
